@@ -66,6 +66,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # letter opener gem helps in sending messages and confirmations resembling emails
+  gem "letter_opener"
 end
 
 # devise
