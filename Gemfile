@@ -68,7 +68,7 @@ group :development do
   # gem "spring"
 
   # letter opener gem helps in sending messages and confirmations resembling emails
-  gem "letter_opener"
+  gem 'letter_opener'
 end
 
 # devise

@@ -17,8 +17,9 @@
         </li>
       </ul>
       <span class="navbar-text">
-        Signed in as xxxx
+        <%= "Signed as #{current_user.name}"%>
       </span>
+      <%= button_to "Log out ", destroy_user_session_path, method: :delete, class: "m-2"%>
     </div>
   </div>
 </nav>
