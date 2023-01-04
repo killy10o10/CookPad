@@ -22,6 +22,7 @@ class InventoriesController < ApplicationController
   # POST /inventories or /inventories.json
   def create
     @inventory = Inventory.new(inventory_params)
+    @inventory.user_id = current_user.id
 
     respond_to do |format|
       if @inventory.save
@@ -49,6 +50,6 @@ class InventoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def inventory_params
-      params.require(:inventory).permit(:name, :description, :User_id)
+      params.require(:inventory).permit(:name, :description)
     end
 end
