@@ -2,7 +2,15 @@ html {
   box-sizing: border-box;
 }
 
-.new-food a {
+.btn a {
   text-decoration: none;
   color: #fff;
+}
+
+.form input {
+  width: 550px;
+}
+
+.form .btn {
+  width: fit-content;
 }

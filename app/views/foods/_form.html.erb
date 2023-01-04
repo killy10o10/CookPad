@@ -11,22 +11,24 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :measurement_unit, style: "display: block" %>
-    <%= form.text_field :measurement_unit %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+<div class="form mt-5">
+    <div>
+      <%= form.label :name, class: "form-label fw-bold" %>
+      <%= form.text_field :name, placeholder: "Apple", class: "form-control" %>
+    </div>
+  
+    <div>
+      <%= form.label :measurement_unit, class: "form-label fw-bold" %>
+      <%= form.text_field :measurement_unit, placeholder: "grams", class: "form-control" %>
+    </div>
+  
+    <div>
+      <%= form.label :price,  class: "form-label fw-bold" %>
+      <%= form.text_field :price, placeholder: "34.57",  class: "form-control" %>
+    </div>
+  
+    <div>
+      <%= form.submit class: "btn btn-success fw-bold mt-2" %>
+    </div>
+</div >
 <% end %>
