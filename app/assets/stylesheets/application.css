@@ -1,3 +1,15 @@
-html {
-  box-sizing: border-box;
+/* adding styles for inventory */
+
+.inventory-display {
+    border: thin solid #a5a5b0;;
+    padding: 12px;
+    margin-bottom: 16px;
+    transition: all 150ms ease-in-out;
 }
+
+.inventory-display:hover {
+    background-color: #e4e4f9;
+    border-color: #e4e4f9;
+}
+
+
