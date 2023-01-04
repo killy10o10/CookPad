@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :inventories
   get 'users/index'
   devise_for :users
 
