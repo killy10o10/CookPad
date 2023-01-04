@@ -1,4 +1,5 @@
 class InventoriesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_inventory, only: %i[ show edit destroy ]
 
   # GET /inventories or /inventories.json
@@ -26,7 +27,7 @@ class InventoriesController < ApplicationController
 
     respond_to do |format|
       if @inventory.save
-        format.html { redirect_to inventory_url(@inventory), notice: "Inventory was successfully created." }
+        format.html { redirect_to inventories_url}
       else
         format.html { render :new, status: :unprocessable_entity }
       end

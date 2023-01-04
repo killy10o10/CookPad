@@ -12,4 +12,15 @@
     border-color: #e4e4f9;
 }
 
+.inventory-name {
+    width: 20%;
+    margin-right: 82px;
+}
 
+.inventory-description {
+    width: 80%;
+}
+
+.mt-2 {
+    margin-top: 16px;
+}
