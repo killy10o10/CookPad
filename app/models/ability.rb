@@ -5,6 +5,7 @@ class Ability
     can :read, Inventory, public: true
 
     return unless user.present?
-    can :manage, :all, user:user
+
+    can :manage, :all, user: user
   end
 end

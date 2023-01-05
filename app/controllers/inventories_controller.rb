@@ -1,6 +1,5 @@
 class InventoriesController < ApplicationController
-  load_and_authorize_resource
-  before_action :set_inventory, only: %i[ show edit destroy ]
+  before_action :set_inventory, only: %i[show edit destroy]
 
   # GET /inventories or /inventories.json
   def index
@@ -8,8 +7,7 @@ class InventoriesController < ApplicationController
   end
 
   # GET /inventories/1 or /inventories/1.json
-  def show
-  end
+  def show; end
 
   # GET /inventories/new
   def new
@@ -17,8 +15,7 @@ class InventoriesController < ApplicationController
   end
 
   # GET /inventories/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /inventories or /inventories.json
   def create
@@ -27,7 +24,7 @@ class InventoriesController < ApplicationController
 
     respond_to do |format|
       if @inventory.save
-        format.html { redirect_to inventories_url}
+        format.html { redirect_to inventories_url }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -39,18 +36,19 @@ class InventoriesController < ApplicationController
     @inventory.destroy
 
     respond_to do |format|
-      format.html { redirect_to inventories_url, notice: "Inventory was successfully destroyed." }
+      format.html { redirect_to inventories_url, notice: 'Inventory was successfully destroyed.' }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_inventory
-      @inventory = Inventory.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def inventory_params
-      params.require(:inventory).permit(:name, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_inventory
+    @inventory = Inventory.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def inventory_params
+    params.require(:inventory).permit(:name, :description)
+  end
 end
