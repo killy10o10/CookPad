@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe "inventories/show", type: :view do
+RSpec.describe 'inventories/show', type: :view do
   before(:each) do
     assign(:inventory, Inventory.create!(
-      name: "Name",
-      description: "MyText",
-      User: nil
-    ))
+                         name: 'Name',
+                         description: 'MyText',
+                         User: nil
+                       ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/MyText/)
