@@ -1,3 +1,16 @@
 html {
   box-sizing: border-box;
 }
+
+.btn a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.form input {
+  width: 550px;
+}
+
+.form .btn {
+  width: fit-content;
+}
