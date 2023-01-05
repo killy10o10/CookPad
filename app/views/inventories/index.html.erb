@@ -1,14 +1,14 @@
 <h1>Inventories</h1>
 
-<div id="inventories">
+<div id="inventories" class="mt-2">
   <% @inventories.each do |inventory| %>
-
-    <p>
-      <%= link_to inventory_path(inventory), class: "text-decoration-none text-dark d-block" do%>
-        <%= render inventory %>
+    <div class="inventory-display">
+      <%= render inventory %>
+      <% if can? :delete, inventory%>
+        <%= button_to "REMOVE", inventory_path(inventory), method: :delete, class: "btn btn-danger btn-sm mt-2"%>
       <% end %>
-    </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New inventory", new_inventory_path %>
+<%= link_to "New inventory", new_inventory_path, class: "btn btn-success mt-4" %>
