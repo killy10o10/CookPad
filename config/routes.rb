@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :users
   # inventories
-  resources :inventory_foods
-  resources :inventories
+
+  resources :inventories do
+    resources :inventory_foods
+  end
 end
