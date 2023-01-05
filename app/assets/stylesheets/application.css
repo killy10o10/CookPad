@@ -13,15 +13,14 @@
 }
 
 .inventory-name {
-    width: 20%;
-    margin-right: 82px;
-    margin-bottom: 0;
+  width: 20%;
+  margin-right: 82px;
+  margin-bottom: 0;
 }
 
 .inventory-description {
-    width: 80%;
-    margin-bottom: 0;
-
+  width: 80%;
+  margin-bottom: 0;
 }
 
 .mt-2 {
