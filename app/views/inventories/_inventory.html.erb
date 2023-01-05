@@ -1,14 +1,17 @@
-<div class="" id="<%= dom_id inventory %>">
-  <div>
-    <%= link_to inventory_path(inventory), class: "text-decoration-none text-dark d-flex" do%>
-      <p class="inventory-name">
-        <%= inventory.name %>
-      </p>
+<div class="inventory-display" id="<%= dom_id inventory %>">
+  <p>
+    <strong>Name:</strong>
+    <%= inventory.name %>
+  </p>
 
-      <p>
-        <%= inventory.description %>
-     </p>
-    <% end %>
-  </div>
+  <p>
+    <strong>Description:</strong>
+    <%= inventory.description %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= inventory.user_id %>
+  </p>
 
 </div>
