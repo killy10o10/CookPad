@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user!, except: %i[public show]
 
     def index
         @recipes = Recipe.all
@@ -14,9 +14,10 @@ class RecipesController < ApplicationController
     end
 
     def create
-        @recipe = Recipe.new(recipe_params)
+        @recipe = Recipe.create(recipe_params)
         @recipe.user = current_user
-        if @recipe.save
+        if @recipe.valid?
+            @recipe.save
             redirect_to recipes_path
         else
             render 'new'
@@ -29,8 +30,10 @@ class RecipesController < ApplicationController
 
     def destroy
         @recipe = Recipe.find(params[:id])
-        @recipe.destroy
-        redirect_to recipes_path
+        if @recipe.user.id == current_user.id
+          @recipe.destroy
+          redirect_to recipes_path
+        end
     end
 
     def recipe_params

@@ -1,8 +1,15 @@
 <div>
+  <div class="new-recipe">
+  <%=link_to new_recipe_path(@recipes) do %>
+    <button class="btn-rcp">Add new recipe</button>
+  <% end %>
+  </div>
   <div class="recipe-card">
   <% @recipes.each do |recipe| %>
     <div>
-      <h3>Recipe <%= recipe.name %> </h3>
+      <h3>
+        <a href="/recipes/<%= recipe.id %>"> <%= recipe.name %></a>
+      </h3>
       <% button_to "Delete", recipe, method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
     <div>
@@ -12,13 +19,7 @@
   <div>
   <p>
     <% if @recipes.empty? %>
-      <span>No recipes yet</span>
+      <h2>No recipes yet</h2>
     </p>
     <% end %>
-
-   <div class="new-recipe">
-      <button type="button" class="rcp">
-       <a href="/recipes/new">Add new recipe</a>
-  </button>
-  </div>
 </div>

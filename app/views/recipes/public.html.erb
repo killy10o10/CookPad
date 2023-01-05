@@ -1,24 +1,24 @@
 <div>
+<div>
 <@recipes.each do |recipe| %>
+    <% if recipe.public %> 
     <div>
-        <h3>Recipe <%= recipe.name %> </h3>
-        <% if !current_user.nil? && recipe.user_id == current_user.id%>
-        <% button_to "Delete" recipe, method: :delete, data: { confirm: "Are you sure?" } %>
-        <% end %>
-    <div>
-    <div>
-        <p><%= recipe.description %></p>
-    <div>
+        <h3>
+        <a href="/recipes/<%= recipe.id %>"> <%= recipe.name %></a>
+        </h3>
+        <p>By <%= recipe.user.name %></p>
+        </div>
+        <div>
+        <p> Total food items: </p>
+        <p> total price: </p>
+        </div>
+    <% end %>
     <% end %>
 <div>
 <p>
     <% if @recipes.empty? %>
-        <span>No recipes yet</span>
+        <span>No recipes added yet</span>
     </p>
     <% end %>
-    <div class="new-recipe">
-        <button type="button" class="rcp">
-            <a href="/recipes/new">Add new recipe</a>
-        </button>
-    </div>
+</div>
 </div>
