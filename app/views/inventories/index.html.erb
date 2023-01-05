@@ -3,14 +3,11 @@
 <div id="inventories" class="mt-2">
   <% @inventories.each do |inventory| %>
     <div class="inventory-display">
-      <p>
-        <%= render inventory %>
-      </p>
-
-      <%= button_to "REMOVE", inventory_path(inventory), method: :delete, class: "btn btn-danger btn-sm"%>
+      <%= render inventory %>
+      <% if can? :delete, inventory%>
+        <%= button_to "REMOVE", inventory_path(inventory), method: :delete, class: "btn btn-danger btn-sm mt-2"%>
+      <% end %>
     </div>
-
-
   <% end %>
 </div>
 
