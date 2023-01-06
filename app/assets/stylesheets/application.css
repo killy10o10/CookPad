@@ -43,3 +43,25 @@
 .form .btn {
   width: fit-content;
 }
+
+.add-food {
+  display: block;
+  width: 100px;
+  margin-left: auto;
+}
+
+.inventory-food-header {
+  padding-bottom: 13px;
+  border-bottom: thin solid;
+}
+
+#inventory_food_food_id {
+  width: 100%;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.label-inv-food {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
