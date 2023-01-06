@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :recipes, only: [:public, :index, :show, :new, :create, :destroy]
+  
   # inventories
 
   resources :inventories do

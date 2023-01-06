@@ -44,24 +44,21 @@
   width: fit-content;
 }
 
-.add-food {
-  display: block;
-  width: 100px;
-  margin-left: auto;
+.log-in {
+  height: 300px;
+  background-color: #41db96;
+  border-radius: 5px;
 }
 
-.inventory-food-header {
-  padding-bottom: 13px;
-  border-bottom: thin solid;
+.log-in input {
+  width: 300px;
 }
 
-#inventory_food_food_id {
-  width: 100%;
-  font-size: 18px;
-  padding: 5px;
+.log-in .form-check-input {
+  width: 15px;
 }
 
-.label-inv-food {
-  margin-bottom: 12px;
-  font-size: 18px;
+.log-in form {
+  width: fit-content;
+  padding: 10px;
 }
