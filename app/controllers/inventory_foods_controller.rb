@@ -25,21 +25,8 @@ class InventoryFoodsController < ApplicationController
     respond_to do |format|
       if @inventory_food.save
         format.html { redirect_to inventory_url(inventory_id), notice: "Inventory food was successfully created." }
-
       else
-        format.html { render :new, status: :unprocessable_entity }
-
-      end
-    end
-  end
-
-  # PATCH/PUT /inventory_foods/1 or /inventory_foods/1.json
-  def update
-    respond_to do |format|
-      if @inventory_food.update(inventory_food_params)
-        format.html { redirect_to inventory_food_url(@inventory_food), notice: "Inventory food was successfully updated." }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html {redirect_to new_inventory_inventory_food_url(inventory_id), status: :unprocessable_entity, alert: "No food item selected or no quantity specified" }
       end
     end
   end
@@ -49,8 +36,7 @@ class InventoryFoodsController < ApplicationController
     @inventory_food.destroy
 
     respond_to do |format|
-      format.html { redirect_to inventory_foods_url, notice: "Inventory food was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to inventory_url, notice: "Inventory food was successfully destroyed." }
     end
   end
 
