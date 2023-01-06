@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
-    <%= form.number_field :quantity %>
+  <div class="mb-3">
+    <%= form.label :Please_select_a_food_item_to_add, class: "d-block label-inv-food"%>
+    <%= form.collection_select :food_id, all_foods, :id, :name, :prompt => true, class: "select-inventory-food" %>
   </div>
 
-  <div>
-    <%= form.label :Please_select_a_food_item_to_add, class: "d-block"%>
-    <%= form.collection_select :food_id, all_foods, :id, :name, :prompt => true %>
-   </div>
+  <div class="mb-3">
+    <%= form.label :quantity, class: "d-block label-inv-food" %>
+    <%= form.number_field :quantity %>
+  </div>
 
   <div>
     <%= form.submit %>

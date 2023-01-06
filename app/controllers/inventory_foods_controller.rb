@@ -1,20 +1,18 @@
 class InventoryFoodsController < ApplicationController
-  before_action :set_inventory_food, only: %i[ show destroy ]
+  before_action :set_inventory_food, only: %i[show destroy]
 
   def index
     @inventory_foods = InventoryFood.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @all_foods = Food.all
     @inventory_food = InventoryFood.new
   end
 
-  def edit
-  end
+  def edit; end
 
   # POST /inventory_foods or /inventory_foods.json
   def create
@@ -24,9 +22,12 @@ class InventoryFoodsController < ApplicationController
 
     respond_to do |format|
       if @inventory_food.save
-        format.html { redirect_to inventory_url(inventory_id), notice: "Inventory food was successfully created." }
+        format.html { redirect_to inventory_url(inventory_id), notice: 'Inventory food was successfully created.' }
       else
-        format.html {redirect_to new_inventory_inventory_food_url(inventory_id), status: :unprocessable_entity, alert: "No food item selected or no quantity specified" }
+        format.html do
+          redirect_to new_inventory_inventory_food_url(inventory_id), status: :unprocessable_entity,
+                                                                      error: 'Incomplete form submitted'
+        end
       end
     end
   end
@@ -36,18 +37,19 @@ class InventoryFoodsController < ApplicationController
     @inventory_food.destroy
 
     respond_to do |format|
-      format.html { redirect_to inventory_url, notice: "Inventory food was successfully destroyed." }
+      format.html { redirect_to inventory_url, notice: 'Inventory food was successfully destroyed.' }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_inventory_food
-      @inventory_food = InventoryFood.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def inventory_food_params
-      params.require(:inventory_food).permit(:quantity, :food_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_inventory_food
+    @inventory_food = InventoryFood.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def inventory_food_params
+    params.require(:inventory_food).permit(:quantity, :food_id)
+  end
 end

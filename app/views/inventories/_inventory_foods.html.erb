@@ -12,7 +12,9 @@
       <td><%= inventory_food.food.name %></td>
       <td><%= inventory_food.quantity %></td>
       <td>
-        <%= button_to "Delete", inventory_inventory_food_path(inventory_food.inventory_id, inventory_food), method: :delete, class: "btn btn-danger btn-sm" %>
+        <% if can? :delete, inventory_food.inventory%>
+            <%= button_to "Delete", inventory_inventory_food_path(inventory_food.inventory_id, inventory_food), method: :delete, class: "btn btn-danger btn-sm" %>
+        <% end %>
       </td>
     </tr>
     <% end %>

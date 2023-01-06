@@ -1,6 +1,9 @@
 <header class="inventory-food-header">
   <h2 class="text-center"><%= @inventory.name %></h2>
-  <%= link_to "Add food",  new_inventory_inventory_food_path(@inventory), class: "btn btn-primary add-food"%>
+  <% if can? :create, @inventory %>
+    <%= link_to "Add food",  new_inventory_inventory_food_path(@inventory), class: "btn btn-primary add-food"%>
+  <% end %>
+
 </header>
 
  <%= render "inventories/inventory_foods", inventory_foods:@inventory_foods%>
