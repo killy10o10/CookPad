@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_06_170512) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_06_082832) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,16 +26,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_06_170512) do
 
   create_table "inventories", force: :cascade do |t|
     t.string "name"
-    t.bigint "user_id", null: false
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_inventories_on_user_id"
+  end
+
+  create_table "inventory_foods", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "inventory_id", null: false
+    t.bigint "food_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_id"], name: "index_inventory_foods_on_food_id"
+    t.index ["inventory_id"], name: "index_inventory_foods_on_inventory_id"
   end
 
   create_table "recipes", force: :cascade do |t|
     t.string "name"
-    t.time "preparation_time"
-    t.time "cooking_time"
+    t.string "preparation_time"
+    t.string "cooking_time"
     t.text "description"
     t.boolean "public"
     t.bigint "user_id", null: false
@@ -64,5 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_06_170512) do
 
   add_foreign_key "foods", "users"
   add_foreign_key "inventories", "users"
+  add_foreign_key "inventory_foods", "foods"
+  add_foreign_key "inventory_foods", "inventories"
   add_foreign_key "recipes", "users"
 end

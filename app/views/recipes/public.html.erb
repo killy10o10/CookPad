@@ -1,6 +1,6 @@
 <div>
 <div>
-<@recipes.each do |recipe| %>
+<% @recipes.each do |recipe| %>
     <% if recipe.public %> 
     <div>
         <h3>
@@ -18,7 +18,7 @@
 <p>
     <% if @recipes.empty? %>
         <span>No recipes added yet</span>
-    </p>
     <% end %>
+    </p>
 </div>
 </div>
