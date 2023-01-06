@@ -26,7 +26,7 @@ class InventoryFoodsController < ApplicationController
       else
         format.html do
           redirect_to new_inventory_inventory_food_url(inventory_id), status: :unprocessable_entity,
-                                                                      error: 'Incomplete form submitted'
+                                                                      alert: 'Incomplete form submitted'
         end
       end
     end
