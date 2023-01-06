@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :recipes, only: [:public, :index, :show, :new, :create, :destroy]
-  
+  resources :recipes, only: [:public, :index, :show, :new, :create, :destroy] do
+    resources :recipe__foods, only: %i[ create destroy new]
+  end
+
   # inventories
 
   resources :inventories do
