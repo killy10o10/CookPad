@@ -6,7 +6,8 @@
 </div>
 <div>
 <button> Generate shopping list </button>
-<button> Add ingredient</button>
+<%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), class: "btn btn-primary add-food"%>
+<br>
 </div>
 <div>
 <table>
@@ -15,12 +16,6 @@
 <th>Quantity</th>
 <th>Value</th>
 <th>Actions</th>
-</tr>
-<tr>
-<td>Ingredient 1</td>
-<td>Quantity 1</td>
-<td>Value 1</td>
-<td> Modify Remove </td>
 </tr>
 </table>
 </div>
