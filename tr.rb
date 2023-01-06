@@ -1,5 +1,5 @@
 class Recipe < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, class_name: 'User', foreign_key: 'user_id'
 
   validates :name, presence: true, length: { minimum: 3, maximum: 500 }
   validates :description, presence: true, length: { minimum: 3, maximum: 1000 }

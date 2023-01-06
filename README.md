@@ -139,6 +139,11 @@ To run the project, execute the following command:
 - Twitter: [@Quami_Killy](https://twitter.com/Quami_Killy)
 - LinkedIn: [@Kingsley Okine](https://www.linkedin.com/in/kingsley-okine/)
 
+👤 **Tracy Musongole**
+
+- GitHub: [@TracyMuso](https://github.com/TracyMuso)
+- LinkedIn: [Tracy Musongole](https://www.linkedin.com/in/tracy-muso/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
