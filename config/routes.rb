@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'inventory_shoppings/index'
   resources :foods
   devise_for :users
   get '/public_recipes', to: 'recipes#public'
@@ -17,4 +18,7 @@ Rails.application.routes.draw do
   resources :inventories do
     resources :inventory_foods, only: %i[ create destroy new]
   end
+
+  get '/shopping_list', to: 'inventory_shoppings#index', as: :shopping
+
 end

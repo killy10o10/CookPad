@@ -4,6 +4,7 @@ class ShoppingListsController < ApplicationController
   # GET /shopping_lists or /shopping_lists.json
   def index
     @shopping_lists = ShoppingList.all
+    @par = request.query_parameters
   end
 
   # GET /shopping_lists/1 or /shopping_lists/1.json
@@ -12,49 +13,26 @@ class ShoppingListsController < ApplicationController
 
   # GET /shopping_lists/new
   def new
+    @all_inventories = Inventory.all
     @shopping_list = ShoppingList.new
   end
 
-  # GET /shopping_lists/1/edit
-  def edit
+  def shop
+
   end
 
   # POST /shopping_lists or /shopping_lists.json
   def create
     @shopping_list = ShoppingList.new(shopping_list_params)
+    recipe_id = params[:recipe_id]
+    @shopping_list.recipe_id =recipe_id
 
-    respond_to do |format|
-      if @shopping_list.save
-        format.html { redirect_to shopping_list_url(@shopping_list), notice: "Shopping list was successfully created." }
-        format.json { render :show, status: :created, location: @shopping_list }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @shopping_list.errors, status: :unprocessable_entity }
-      end
+    if @shopping_list.save
+      redirect_to shopping_url
+    else
+      redirect_to recipe_url(params[:recipe_id]), alert: 'Form not saved'
     end
-  end
 
-  # PATCH/PUT /shopping_lists/1 or /shopping_lists/1.json
-  def update
-    respond_to do |format|
-      if @shopping_list.update(shopping_list_params)
-        format.html { redirect_to shopping_list_url(@shopping_list), notice: "Shopping list was successfully updated." }
-        format.json { render :show, status: :ok, location: @shopping_list }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @shopping_list.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /shopping_lists/1 or /shopping_lists/1.json
-  def destroy
-    @shopping_list.destroy
-
-    respond_to do |format|
-      format.html { redirect_to shopping_lists_url, notice: "Shopping list was successfully destroyed." }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -65,6 +43,7 @@ class ShoppingListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def shopping_list_params
-      params.fetch(:shopping_list, {})
+      params.require(:shopping_list).permit(:inventory_id)
     end
 end
+

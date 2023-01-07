@@ -11,7 +11,13 @@
     </div>
   <% end %>
 
+  <div class="mb-3">
+    <%= form.label :Select_inventory, class: "d-block mb-2"%>
+    <%= form.collection_select :inventory_id, all_inventories, :id, :name, :prompt => true %>
+  </div>
+
+
   <div>
-    <%= form.submit %>
+    <%= form.submit "Generate", class: "generate" %>
   </div>
 <% end %>
