@@ -18,6 +18,7 @@ class RecipeFoodsController < ApplicationController
 
   # GET /recipe_foods/1/edit
   def edit
+    @all_foods = Food.all
   end
 
   # POST /recipe_foods or /recipe_foods.json
@@ -39,7 +40,7 @@ class RecipeFoodsController < ApplicationController
   def update
     respond_to do |format|
       if @recipe_food.update(recipe_food_params)
-        format.html { redirect_to recipe_food_url(@recipe_food), notice: "Recipe food was successfully updated." }
+        format.html { redirect_to recipe_url(@recipe_food.recipe_id), notice: "Recipe food was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -51,7 +52,7 @@ class RecipeFoodsController < ApplicationController
     @recipe_food.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipe_foods_url, notice: "Recipe food was successfully destroyed." }
+      format.html { redirect_to recipe_url, notice: "Recipe food was successfully destroyed." }
     end
   end
 

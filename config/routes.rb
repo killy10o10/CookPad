@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :recipes, only: [:public, :index, :show, :new, :create, :destroy] do
-    resources :recipe_foods, only: %i[ create destroy new]
+  resources :recipes do
+    resources :recipe_foods
   end
 
   # inventories
@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :inventories do
     resources :inventory_foods, only: %i[ create destroy new]
   end
+
+  patch "/recipes/:id/recipe_foods/:id", to: 'recipe_foods#update'
 end
