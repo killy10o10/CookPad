@@ -25,7 +25,7 @@ class RecipesController < ApplicationController
   end
 
   def public
-    @recipes = Recipe.where(public:true).and(Recipe.where.not(user_id: current_user.id))
+    @recipes = Recipe.where(public: true).and(Recipe.where.not(user_id: current_user.id))
   end
 
   def destroy

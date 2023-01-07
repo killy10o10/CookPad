@@ -1,4 +1,7 @@
 /* adding styles for inventory */
+a {
+  text-decoration: none;
+}
 
 .inventory-display {
   border: thin solid #a5a5b0;
@@ -61,8 +64,4 @@
 .log-in form {
   width: fit-content;
   padding: 10px;
-}
-
-a {
-  text-decoration: none;
 }
