@@ -16,6 +16,4 @@ Rails.application.routes.draw do
   resources :inventories do
     resources :inventory_foods, only: %i[ create destroy new]
   end
-
-  patch "/recipes/:id/recipe_foods/:id", to: 'recipe_foods#update'
 end
