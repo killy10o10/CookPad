@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe_foods = RecipeFood.all.where(recipe_id: params[:id]).includes(:food)
+    @shopping_list = 
     @recipe = Recipe.find(params[:id])
   end
 
