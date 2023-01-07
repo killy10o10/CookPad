@@ -67,14 +67,14 @@ a {
 }
 
 .popup-window {
-border: thin solid gray;
-padding: 16px;
-position: absolute;
-background: #f9f9f9;
-left: 24%;
-width: 50%;
-right: 24%;
-height: 60%;
+  border: thin solid gray;
+  padding: 16px;
+  position: absolute;
+  background: #f9f9f9;
+  left: 24%;
+  width: 50%;
+  right: 24%;
+  height: 60%;
 }
 
 .generate {
