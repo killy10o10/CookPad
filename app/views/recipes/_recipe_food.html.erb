@@ -24,8 +24,6 @@
          <div>
             <% if can? :delete, recipe_food.recipe %>
                 <%= link_to "Edit", edit_recipe_recipe_food_path(recipe_food.recipe_id, recipe_food), method: :edit, class: "btn btn-secondary btn-sm" %>
-            <% else %>
-                <%= link_to "Edit", edit_recipe_recipe_food_path(recipe_food.recipe_id, recipe_food), method: :edit, class: "btn btn-secondary btn-sm", disabled: true%>
             <% end %>
         </div>
       </td>
