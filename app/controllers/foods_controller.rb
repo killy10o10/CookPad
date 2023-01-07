@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
 
   # GET /foods or /foods.json
   def index
-    @foods = Food.all.includes(:inventory_foods)
+    @foods = Food.all.includes(:inventory_foods, :recipe_foods)
   end
 
   # GET /foods/1 or /foods/1.json
@@ -20,7 +20,7 @@ class FoodsController < ApplicationController
   # POST /foods or /foods.json
   def create
     @food = Food.new(food_params)
-    @food.user_id = current_user.id
+    @food.user = current_user
 
     respond_to do |format|
       if @food.save
@@ -49,6 +49,7 @@ class FoodsController < ApplicationController
   # DELETE /foods/1 or /foods/1.json
   def destroy
     @food.inventory_foods.destroy_all
+    @food.recipe_foods.destroy_all
     @food.destroy
 
     respond_to do |format|
