@@ -26,6 +26,7 @@ development:
   database: killy_recipe
   username: postgres
   password: 'killy2468'
+  # password: 'psql888tm'
   host: localhost
   port: 5432
 
@@ -64,6 +65,7 @@ test:
   database: killy_recipe
   username: postgres
   password: 'killy2468'
+  # password: 'psql888tm'
   host: localhost
   port: 5432
 

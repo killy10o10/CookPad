@@ -32,3 +32,6 @@
 
 # RubyMine folder
 /.idea
+
+# ignore node modules
+node_modules
