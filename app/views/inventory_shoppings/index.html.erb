@@ -1,24 +1,24 @@
 <h1 class="text-center fw-bold">Shopping list </h1>
-<div class="container d-flex flex-column">
-  <div class="d-flex align-items-center">
-    <h2 class="fw-bold m-2">Recipe: </h2><%= @recipe.name %>
+<div class="container d-flex flex-row justify-content-between">
+  <div class="">
+    <p class=""><%= "Amount of food to buy: #{@shopping_list_items.size}"%></p>
+    <p class=""><%= "Total value of food needed: $#{@total_cost}"%></p>
   </div>
 
-  <div class="d-flex align-items-center">
-    <h2 class="fw-bold m-2">Inventory: </h2><%= @inventory.name %>
+  <div class="">
+    <p>Recipe:
+      <%= link_to "#{@recipe.name}",recipe_path(@recipe.id) %>
+    </p>
+
+    <p>Inventory:
+      <%= link_to "#{@inventory.name}", inventory_path(@inventory.id) %>
+    </p>
   </div>
 
-
-  <table class="table table-dark table-striped mt-5">
-    <thead>
-    <tr>
-      <th scope="col">Food</th>
-      <th scope="col">Quantity</th>
-      <th scope="col">Price</th>
-    </tr>
-    </thead>
-  <tbody>
-  <tr></tr>
-  </tbody>
-  </table>
 </div>
+
+<% if @shopping_list_items.size > 0 %>
+  <%= render "table", shopping_list_hash: @shopping_list_items%>
+<% else %>
+  <h5>It looks like you have all the neccessary quantities in the inventory for this receipe </h5>
+<%end %>

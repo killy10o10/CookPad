@@ -27,7 +27,7 @@ class ShoppingListsController < ApplicationController
     if @shopping_list.save
       redirect_to shopping_url
     else
-      redirect_to recipe_url(params[:recipe_id]), alert: 'Form not saved'
+      redirect_to recipe_url(params[:recipe_id]), alert: 'Shopping list not saved'
     end
   end
 
